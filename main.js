@@ -53,13 +53,14 @@ function doubleEven(array){
 }
 
 function titleCase(string){
-  return string[0].toUpperCase + string.slice(1).toLowerCase()
+  return string.toLowerCase().split(' ').map(function(word){
+    return word.replace(word[0], word[0].toUpperCase())
+  }).join(' ')
 }
 
-function titleCaseNames(string){
-  return string.split(" ").map(letter => titleCase(letter).join(" "))
+function titleCaseNames(array){
+  return array.map(titleCase)
 }
-
 function doubleEveryOther(num){
   return num.map(function(value, i){
     return i % 2 == 0 ? value : value * 2
